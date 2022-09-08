@@ -17,6 +17,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var messageLabel: UILabel!
     
     var imageNumber = 0
+    var messageNumber = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,9 +26,15 @@ class ViewController: UIViewController {
     
     // @IBActions are functions  that perfrom swift code enclosed in the function's curlies
     @IBAction func messageButtonPressed(_ sender: UIButton) {
+        let messages = ["You are Awesome", "You Are Great", "You Are Fabolous", "Fabolous? That's You!"]
         
+        messageLabel.text = messages[messageNumber]
+        messageNumber += 1
+        if messageNumber == messages.count {
+            messageNumber = 0
+        }
         
-        print(imageNumber)
+       
         let imageName = "image\(imageNumber)"
         imageView.image = UIImage(named: imageName)
         imageNumber += 1
